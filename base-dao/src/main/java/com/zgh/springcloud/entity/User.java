@@ -30,7 +30,7 @@ public class User implements Serializable{
 
     private String email;
 
-    private Integer iId;
+    private Integer eId;
 
 }
 

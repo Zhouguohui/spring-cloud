@@ -6,6 +6,8 @@
 <configuration>
 
     <settings>
+        <!-- 打印查询语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
         <setting name="cacheEnabled" value="true" /><!-- 二级缓存开启 -->
         <setting name="mapUnderscoreToCamelCase" value="true"/> <!--开启驼峰标识-->
     </settings>

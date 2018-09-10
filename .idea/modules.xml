@@ -7,6 +7,9 @@
       <module fileurl="file://$PROJECT_DIR$/base-dao/base-dao.iml" filepath="$PROJECT_DIR$/base-dao/base-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-service/base-service.iml" filepath="$PROJECT_DIR$/base-service/base-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-utils/base-utils.iml" filepath="$PROJECT_DIR$/base-utils/base-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-consumer/eureka-consumer.iml" filepath="$PROJECT_DIR$/eureka-consumer/eureka-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-provider/eureka-provider.iml" filepath="$PROJECT_DIR$/eureka-provider/eureka-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud.iml" filepath="$PROJECT_DIR$/spring-cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud/springcloud.iml" filepath="$PROJECT_DIR$/springcloud/springcloud.iml" />
     </modules>

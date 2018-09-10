@@ -97,6 +97,9 @@
         <module>base-dao</module>
         <module>base-utils</module>
         <module>springcloud</module>
+        <module>eureka-server</module>
+        <module>eureka-consumer</module>
+        <module>eureka-provider</module>
     </modules>
 
 

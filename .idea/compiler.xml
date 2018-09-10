@@ -11,6 +11,9 @@
         <module name="base-dao" />
         <module name="base-service" />
         <module name="base-utils" />
+        <module name="eureka-consumer" />
+        <module name="eureka-provider" />
+        <module name="eureka-server" />
         <module name="springcloud" />
       </profile>
     </annotationProcessing>
@@ -20,6 +23,9 @@
       <module name="base-dao" target="1.8" />
       <module name="base-service" target="1.8" />
       <module name="base-utils" target="1.8" />
+      <module name="eureka-consumer" target="1.8" />
+      <module name="eureka-provider" target="1.8" />
+      <module name="eureka-server" target="1.8" />
       <module name="spring-cloud" target="1.8" />
       <module name="springcloud" target="1.8" />
     </bytecodeTargetLevel>

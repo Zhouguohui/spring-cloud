@@ -8,10 +8,11 @@
         <result column="address" property="address" jdbcType="VARCHAR"  />
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"  />
         <result column="email" property="email" jdbcType="VARCHAR"  />
-        <result column="i_id" property="iId" jdbcType="VARCHAR"  />
+        <result column="e_id" property="eId" jdbcType="VARCHAR"  />
     </resultMap>
 
-    <insert id="">
-
+    <insert id="insertUser" parameterType="com.zgh.springcloud.entity.User">
+        insert into user (user_name,address,email,e_id)
+        VALUES (#{userName},#{address},#{email},#{eId})
     </insert>
 </mapper>
