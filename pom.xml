@@ -68,6 +68,7 @@
         </dependencies>
     </dependencyManagement>
 
+    <!--构建eureka的info页面配置信息-->
     <build>
         <finalName>spring-cloud</finalName>
         <resources>

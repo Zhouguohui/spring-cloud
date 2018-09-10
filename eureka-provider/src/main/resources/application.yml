@@ -1,6 +1,36 @@
 server:
   port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.zgh.springcloud.entity
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+
+spring:
+  application:
+    name: springcloud   #微服务入住的服务名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false          # 数据库名称
+    username: root
+    password:
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
 eureka:
   client:
-    service-url: http://localhost:7001/eureka/
+    service-url:
+      defaultZone: http://localhost:7001/eureka/  #eureka 交互地址
+  instance:
+    instance-id: eureka-provider-8001 #修改eureka页面的访问地址展示信息
+    prefer-ip-address: true    #访问路径显示IP地址
 
+#----info页面信息
+info:
+  app.name: test-8001
+  company.name: 周国辉 springcloud
+  build.artifactId: $project.artifactId$   #$$ 配置是在顶级的pom文件的build来配置  然后在字项目中去填充数据
+  build.version: $project.version$
