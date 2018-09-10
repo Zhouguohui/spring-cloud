@@ -20,17 +20,25 @@ spring:
       initial-size: 5                                       # 初始化连接数
       max-total: 5                                          # 最大连接数
       max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+#eureka 如果超时检测不到页面会报错误  是因为eureka有安全检测  可以通过eureka.client.healthcheck.enabled = true   ??这里是否需要开启健康检查   ,答:可以不开启                            开启健康检查（需要spring-boot-starter-actuator依赖）
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka/  #eureka 交互地址
-  instance:
-    instance-id: eureka-provider-8001 #修改eureka页面的访问地址展示信息
-    prefer-ip-address: true    #访问路径显示IP地址
+      #eureka 交互地址
+      defaultZone: http://localhost:7001/eureka/
+    #设置拉取服务注册信息时间，默认60s
+    registry-fetch-interval-seconds: 30
+  instance: #修改eureka页面的访问地址展示信息
+    instance-id: eureka-provider-8001
+    prefer-ip-address: true
+    status-page-url-path: /info   #访问路径显示IP地址
+    #设置过期剔除时间，默认90s
+    lease-expiration-duration-in-seconds: 45
 
-#----info页面信息
+#----info页面信息 $$ 配置是在顶级的pom文件的build来配置  然后在字项目中去填充数据
 info:
-  app.name: test-8001
-  company.name: 周国辉 springcloud
-  build.artifactId: $project.artifactId$   #$$ 配置是在顶级的pom文件的build来配置  然后在字项目中去填充数据
+  build.name: $project.name$
+  build.description: $project.description$
+  build.groupId: $project.groupId$
+  build.artifact: $project.artifactId$
   build.version: $project.version$
