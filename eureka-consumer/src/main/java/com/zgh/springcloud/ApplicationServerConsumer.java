@@ -10,9 +10,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication(scanBasePackages="com.zgh")
 @EnableEurekaClient
-public class ApplicationServer {
+public class ApplicationServerConsumer {
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationServer.class,args);
+        SpringApplication.run(ApplicationServerConsumer.class,args);
     }
 }
 
