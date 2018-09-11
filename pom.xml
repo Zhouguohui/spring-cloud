@@ -101,6 +101,8 @@
         <module>eureka-server</module>
         <module>eureka-consumer</module>
         <module>eureka-provider</module>
+        <module>eureka-server1</module>
+        <module>eureka-server2</module>
     </modules>
 
 
