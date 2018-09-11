@@ -2,10 +2,10 @@ package com.zgh.springcloud.controller.user;
 
 import com.zgh.springcloud.entity.User;
 import com.zgh.springcloud.service.user.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,12 +16,13 @@ import java.util.List;
 @RestController
 @RequestMapping(value = {"user","zgh"})
 public class UserImplController {
-
+    private static final Logger logger= LoggerFactory.getLogger(UserImplController.class);
     @Autowired
     UserService userService;
 
     @RequestMapping("insertUser")
-    public String insertUser(User user){
+    public String insertUser(@RequestBody User user){
+        logger.info(user.toString()+"--------UserImplController-------");
       int i =   userService.insertUser(user);
       return String.valueOf(i);
     }
