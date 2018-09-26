@@ -28,7 +28,7 @@ public class UserImplController {
     }
 
     @RequestMapping("updateUser")
-    public String updateUser(User user){
+    public String updateUser(@RequestBody User user){
         int i =   userService.updateUser(user);
         return String.valueOf(i);
     }
@@ -40,12 +40,14 @@ public class UserImplController {
     }
 
     @RequestMapping("selectUser")
-    public List<User> selectUser(User user,Integer pageSize,Integer pageNum){
+    public List<User> selectUser(@RequestBody User user,Integer pageSize,Integer pageNum){
+        logger.info(user.toString()+"----------"+String.valueOf(pageSize)+"--------"+String.valueOf(pageNum)+"--------getByIdUser-------");
         return userService.selectUser(user);
     }
 
     @RequestMapping("getByIdUser")
     public User getByIdUser(Integer id){
+        logger.info(String.valueOf(id)+"--------getByIdUser-------");
         return userService.getByIdUser(id);
     }
 

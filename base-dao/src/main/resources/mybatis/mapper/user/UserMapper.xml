@@ -15,4 +15,16 @@
         insert into user (user_name,address,email,e_id)
         VALUES (#{userName},#{address},#{email},#{eId})
     </insert>
+
+
+    <select id="selectUser" resultMap="UserMap">
+
+        select * from user
+
+    </select>
+
+    <select id="getByIdUser" resultMap="UserMap">
+      select * from user  where id =#{id}
+    </select>
+
 </mapper>
