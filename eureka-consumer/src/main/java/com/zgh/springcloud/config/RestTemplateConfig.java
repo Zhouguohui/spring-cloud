@@ -12,6 +12,10 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class RestTemplateConfig {
 
+    /**
+     *  @LoadBalanced 为ribbon 负载均衡的一种算法注解
+     * @return
+     */
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate(){

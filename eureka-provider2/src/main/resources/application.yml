@@ -1,0 +1,44 @@
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.zgh.springcloud.entity
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+
+spring:
+  application:
+    name: springcloud   #微服务入住的服务名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:3306/test2?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false          # 数据库名称
+    username: root
+    password:
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+#eureka 如果超时检测不到页面会报错误  是因为eureka有安全检测  可以通过eureka.client.healthcheck.enabled = true   ??这里是否需要开启健康检查   ,答:可以不开启                            开启健康检查（需要spring-boot-starter-actuator依赖）
+eureka:
+  client:
+    service-url:
+      #eureka 交互地址
+      defaultZone: http://eureka.com:7000/eureka/,http://eureka1.com:7001/eureka/,http://eureka2.com:7002/eureka/
+    #设置拉取服务注册信息时间，默认60s
+    registry-fetch-interval-seconds: 30
+  instance: #修改eureka页面的访问地址展示信息
+    instance-id: eureka-provider-8001
+    prefer-ip-address: true
+    status-page-url-path: /info   #访问路径显示IP地址
+    #设置过期剔除时间，默认90s
+    lease-expiration-duration-in-seconds: 45
+
+#----info页面信息 $$ 配置是在顶级的pom文件的build来配置  然后在字项目中去填充数据
+info:
+  build.name: $project.name$
+  build.description: $project.description$
+  build.groupId: $project.groupId$
+  build.artifact: $project.artifactId$
+  build.version: $project.version$
